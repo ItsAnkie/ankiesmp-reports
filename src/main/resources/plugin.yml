@@ -1,0 +1,33 @@
+name: Reports
+version: 1.0.0
+main: net.voltical.reports.ReportsPlugin
+api-version: '1.21'
+authors: [XTC]
+description: Custom AnkieSMP report system developed by XTC.
+
+commands:
+  report:
+    description: Open the report menu or file a report directly.
+    usage: "/report [player] [reason]"
+    permission: reports.use
+  reports:
+    description: Staff command to list, view and manage reports.
+    usage: "/reports <help|about|reload|list|view|close|open|delete>"
+    aliases: [reportadmin]
+
+permissions:
+  reports.use:
+    description: Allows using /report.
+    default: true
+  reports.staff:
+    description: Receive in-game report alerts and use /reports list/view/close/open.
+    default: op
+  reports.reload:
+    description: Reload the plugin configuration (/reports reload).
+    default: op
+  reports.delete:
+    description: Delete reports permanently (/reports delete).
+    default: op
+  reports.bypasscooldown:
+    description: Bypass the report cooldown.
+    default: op

@@ -1,0 +1,45 @@
+﻿# Gradle
+.gradle/
+build/
+
+# Maven
+target/
+
+# Andere build-output
+out/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Visual Studio Code
+.vscode/
+
+# Java
+*.class
+hs_err_pid*
+replay_pid*
+
+# Lokale testserver/runtime
+run/
+server/
+logs/
+*.log
+
+# Environment en secrets
+.env
+.env.*
+!.env.example
+
+# Besturingssysteem
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,157 @@
+# ============================================================
+#  AnkieSMP Reports  -  configuratie
+#  Kleurcodes gebruiken het & symbool (bijv. &c = rood, &l = dikgedrukt).
+#  Developed by XTC
+# ============================================================
+
+branding:
+  server-name: "AnkieSMP"
+  developer: "XTC"
+  credit-line: "Developed by XTC"
+
+storage:
+  # Bestandsnaam binnen plugins/Reports/
+  file: "data.json"
+  # Pretty-print de JSON (leesbaar) of compact opslaan.
+  pretty-print: true
+
+webhook:
+  # Zet de Discord webhook aan of uit. Als deze uit staat, worden reports nog steeds
+  # gelogd in de server console en getoond aan online staff in-game.
+  enabled: true
+
+  # Fallback webhook URL. Wordt gebruikt als bij een specifiek type
+  # onder 'urls' hieronder geen URL is ingevuld.
+  url: "https://discord.com/api/webhooks/1407046643861160116/jNWPW16rWJPTGRRLUMiRSTKNqcYrIk_2uwQjEYpsHq_g2fj5ajoOHoN-tEhlM4UDgLwW"
+
+  # Per-type webhooks. Handig als je speler reports naar het staff kanaal
+  # wil sturen en bugs/suggesties naar een ander kanaal.
+  # Laat een veld leeg om terug te vallen op de 'url' hierboven.
+  urls:
+    player-report: ""
+    bug-report: ""
+    suggestion: ""
+
+  username: "AnkieSMP Reports"
+  avatar-url: "https://static-cdn.jtvnw.net/jtv_user_pictures/08a4f9fb-c36b-4f01-9a86-e063bd0afecd-profile_image-70x70.png"
+  # Footer die onderaan elke Discord embed staat.
+  footer: "AnkieSMP Reports • Developed by XTC"
+  # Titels per report type (laat leeg voor de default).
+  titles:
+    player-report: "🚨 Nieuwe speler report"
+    bug-report: "🐛 Nieuwe bug report"
+    suggestion: "💡 Nieuwe suggestie"
+
+settings:
+  server-name: "AnkieSMP"
+  # Aantal seconden dat een speler moet wachten tussen reports (0 = geen cooldown).
+  cooldown-seconds: 60
+  # Permission node waarmee een speler als staff wordt gezien en in-game meldingen krijgt.
+  staff-permission: "reports.staff"
+  # Aantal seconden dat een speler heeft om een reden in chat te typen voordat het wordt geannuleerd.
+  input-timeout-seconds: 60
+  # Woord dat een speler kan typen om een report te annuleren.
+  cancel-word: "annuleer"
+  # Formaat voor de "server tijd" die in Discord en de console wordt getoond.
+  date-format: "yyyy-MM-dd HH:mm:ss"
+
+# Embed kleuren (hex). Wordt gebruikt voor de gekleurde balk in de Discord embed.
+colors:
+  player-report: "#E67E22"   # oranje
+  bug-report: "#E74C3C"      # rood
+  suggestion: "#2ECC71"      # groen
+
+messages:
+  prefix: "&8[&bAnkieSMP&8] &7"
+  no-permission: "&cJe hebt geen toestemming om dit te doen."
+  players-only: "&cAlleen spelers kunnen dit command gebruiken."
+  cooldown: "&cWacht nog &e{seconds}s &cvoordat je opnieuw een report kunt sturen."
+  cannot-report-self: "&cJe kunt jezelf niet reporten."
+  player-not-found: "&cDie speler kon niet worden gevonden."
+  enter-reason: "&7Typ de reden in chat, of typ &cannuleer &7om te annuleren."
+  enter-bug: "&7Beschrijf de bug in chat, of typ &cannuleer &7om te annuleren."
+  enter-suggestion: "&7Typ je suggestie in chat, of typ &cannuleer &7om te annuleren."
+  cancelled: "&7Report geannuleerd."
+  input-timed-out: "&7Je report is verlopen - er is niets verstuurd."
+  report-sent: "&aJe report is verstuurd! &7ID: &f{id}"
+  usage-reason: "&cGebruik: &7/{label} <speler> <reden>"
+  reloaded: "&aConfiguratie herladen."
+  no-players-online: "&cEr zijn geen andere spelers online om te reporten."
+
+  # placeholders: {reporter} {type} {id}
+  staff-alert: "&8» &e{reporter} &7heeft een &e{type} &7ingediend &8(&f{id}&8)"
+  # placeholders: {reporter} {reported} {id}
+  staff-alert-player: "&8» &e{reporter} &7heeft &c{reported} &7gereport &8(&f{id}&8)"
+  # Wordt getoond wanneer je over de staff melding hovert. placeholder: {reason}
+  staff-alert-hover: "&7Reden: &f{reason}"
+
+  # /reports UX
+  reports-list-header: "&8&m--------&r &bAnkieSMP Reports &8&m--------"
+  reports-list-line: "&8- &f{id} &7| &e{type} &7| &a{status} &7| door &f{reporter}"
+  no-reports: "&7Er zijn nog geen reports."
+  report-closed: "&aReport &f{id} &ais gesloten."
+  report-opened: "&aReport &f{id} &ais opnieuw geopend."
+  report-deleted: "&cReport &f{id} &cis verwijderd."
+  report-not-found: "&cGeen report gevonden met ID &f{id}&c."
+
+  # Usage helpers voor /reports
+  usage-view: "&cGebruik: &7/reports view <id>"
+  usage-close: "&cGebruik: &7/reports close <id>"
+  usage-open: "&cGebruik: &7/reports open <id>"
+  usage-delete: "&cGebruik: &7/reports delete <id>"
+
+  # Broadcasts naar staff wanneer een status verandert
+  staff-report-closed: "&8» &7Report &f{id} &7is &cGESLOTEN &7door &f{staff}"
+  staff-report-opened: "&8» &7Report &f{id} &7is &aGEOPEND &7door &f{staff}"
+  staff-report-deleted: "&8» &7Report &f{id} &7is &cVERWIJDERD &7door &f{staff}"
+
+gui:
+  main:
+    title: "&8AnkieSMP Reports"
+    rows: 3
+    filler: true
+    filler-material: "GRAY_STAINED_GLASS_PANE"
+    items:
+      player-report:
+        slot: 11
+        material: "PLAYER_HEAD"
+        name: "&c&lSpeler Report"
+        lore:
+          - "&7Report een speler voor het"
+          - "&7overtreden van de serverregels."
+          - ""
+          - "&eKlik om verder te gaan"
+      bug-report:
+        slot: 13
+        material: "REDSTONE"
+        name: "&6&lBug Report"
+        lore:
+          - "&7Iets gevonden dat niet werkt?"
+          - "&7Laat het staffteam dit hier weten."
+          - ""
+          - "&eKlik om verder te gaan"
+      suggestion:
+        slot: 15
+        material: "WRITABLE_BOOK"
+        name: "&a&lSuggestie"
+        lore:
+          - "&7Heb je een idee om de"
+          - "&7server te verbeteren? Deel het!"
+          - ""
+          - "&eKlik om verder te gaan"
+      close:
+        slot: 22
+        material: "BARRIER"
+        name: "&c&lSluiten"
+        lore:
+          - "&7Sluit dit menu."
+          - ""
+          - "&7Developed by &bXTC"
+  player-select:
+    title: "&8AnkieSMP - Kies een speler"
+    head-name: "&e{player}"
+    head-lore:
+      - "&7Klik om deze speler te reporten."
+    previous-name: "&e« Vorige"
+    next-name: "&eVolgende »"
+    back-name: "&cTerug"
